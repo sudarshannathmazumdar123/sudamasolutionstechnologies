@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudama Solutions | Technology & Healthcare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --dark-bg: #0a0f1a;
+            --dark-card: #121a2a;
+            --dark-accent: #1a2438;
+            --primary: #00c8a4;
+            --secondary: #5d78ff;
+            --accent: #ff6b8b;
+            --text-light: #e6f1ff;
+            --text-muted: #8ca0d7;
+            --transition: all 0.3s ease;
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0d1423 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(93, 120, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            font-size: 1.05rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(93, 120, 255, 0.15) 0%, rgba(10, 15, 26, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 200, 164, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 200, 164, 0.4);
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            height: 400px;
+            background: linear-gradient(45deg, #1a2438, #0a0f1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 200, 164, 0.1) 0%, rgba(93, 120, 255, 0.1) 100%);
+        }
+
+        .about-image i {
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--dark-accent);
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .price-tag {
+            background: rgba(0, 200, 164, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Work Process Section */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .step {
+            background: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .step-duration {
+            background: rgba(0, 200, 164, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .step-responsibility {
+            display: inline-block;
+            background: rgba(93, 120, 255, 0.1);
+            color: var(--secondary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .step-content ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+
+        .step-content li {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        .step-content li::marker {
+            color: var(--primary);
+        }
+
+        /* Projects Section */
+        .projects {
+            position: relative;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--dark-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #1a2438, #0a0f1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact {
+            position: relative;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            transition: var(--transition);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-details div {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .contact-details i {
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .contact-form {
+            background: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--dark-accent);
+            border: 1px solid rgba(93, 120, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 200, 164, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(93, 120, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3, .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-about p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-accent);
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact p {
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(93, 120, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+               <a href="#" class="logo">
+    <img src="sudama.jpg" alt="Logo" style="height: 30px; vertical-align: middle; margin-right: 10px;">
+    
+</a>
+
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#work-process">Work Process</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Innovative Technology Solutions for Healthcare</h1>
+                <p>Sudama Solutions Technologies & Health care Pvt Ltd delivers cutting-edge technology solutions tailored for the healthcare industry, enhancing patient care and operational efficiency.</p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="three-d-section">
+  <div class="three-d-box">
+    <div class="three-d-face front">
+      <img src="web.jpg" alt="Web Dev">
+    </div>
+    <div class="three-d-face back">
+      <img src="app.jpg" alt="App Dev">
+    </div>
+    <div class="three-d-face left">
+      <img src="saas.jpg" alt="SaaS Dev">
+    </div>
+    <div class="three-d-face right">
+      <img src="paas.jpg" alt="PaaS Dev">
+    </div>
+    <div class="three-d-face top">
+      <img src="ai.jpg" alt="AI Solutions">
+    </div>
+    <div class="three-d-face bottom">
+      <img src="logo.jpg" alt="Logo Design">
+    </div>
+  </div>
+  <h2 class="three-d-caption">Coding in 3D</h2>
+</section>
+
+<style>
+body {
+  margin: 0;
+  background: #0e1013;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.three-d-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.three-d-caption {
+  margin-top: 40px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5ad1ff;
+  text-shadow: 0 0 5px #5ad1ff88;
+}
+
+.three-d-box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg) rotateY(20deg);
+  animation: rotateCube 12s infinite linear;
+}
+
+.three-d-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #1c1f26;
+  border: 2px solid #5ad1ff;
+  box-shadow: 0 0 10px #5ad1ff44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.three-d-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.three-d-box:hover img {
+  transform: scale(1.05);
+}
+
+/* 3D position transforms */
+.front  { transform: translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes rotateCube {
+  0%   { transform: rotateX(-20deg) rotateY(20deg); }
+  50%  { transform: rotateX(40deg) rotateY(200deg); }
+  100% { transform: rotateX(-20deg) rotateY(380deg); }
+}
+</style>
+
+
+
+
+<section class="trusted-partners">
+  <h2>Our Trusted Partners</h2>
+  <div class="partner-marquee">
+    <div class="partner-track">
+      <span>Voxel</span>
+      <span>NextBull</span>
+      <span>BookMyDoct</span>
+      <span>Katlicherra Central School</span>
+      <span>Groance</span>
+      <span>Holly Cross School</span>
+      <span>RKVP</span>
+
+      <!-- Repeat to loop seamlessly -->
+      <span>Voxel</span>
+      <span>NextBull</span>
+      <span>BookMyDoct</span>
+      <span>Katlicherra Central School</span>
+      <span>Groance</span>
+      <span>Holly Cross School</span>
+      <span>RKVP</span>
+    </div>
+  </div>
+</section>
+
+<style>
+.trusted-partners {
+  background: #0d1117;
+  padding: 60px 20px;
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.trusted-partners h2 {
+  font-size: 2rem;
+  color: #00e6ff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #00e6ff55;
+}
+
+.partner-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.partner-track {
+  display: flex;
+  width: max-content;
+  animation: scrollPartners 25s linear infinite;
+  gap: 60px;
+}
+
+.partner-track span {
+  font-size: 1.2rem;
+  white-space: nowrap;
+  color: #ffffffcc;
+  background: #1a1f2b;
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #00e6ff22;
+  transition: transform 0.3s;
+}
+
+.partner-track span:hover {
+  transform: scale(1.1);
+  background: #00e6ff;
+  color: #0d1117;
+}
+
+@keyframes scrollPartners {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+</style>
+
+
+    
+
+   <!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="section-header">
+            <h2>About Us</h2>
+            <p>Learn about our mission, vision, and the values that drive our success</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Transforming Healthcare Through Technology</h3>
+                <p>Founded in 2025, Sudama Solutions has been at the forefront of healthcare technology innovation. We specialize in developing custom software solutions that address the unique challenges faced by healthcare providers, payers, and patients.</p>
+                <p>Our team of experienced developers, designers, and healthcare experts collaborate to create solutions that improve patient outcomes, streamline operations, and enhance the overall healthcare experience.</p>
+                <p>With a client-first approach and a commitment to excellence, we've helped over 200 healthcare organizations transform their digital capabilities.</p>
+            </div>
+           
+            <div class="desk-setup">
+    
+    <div class="monitor">
+      <div class="screen">
+        <div class="typing-text">
+          <span class="typed-line">SUDAMASOLUTIONS TECHNOLOGIES AND HEALTH CARE PVT LTD</span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+}
+
+.typing-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+}
+
+.typing-caption {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  color: #00f6ff;
+  text-shadow: 0 0 8px #00f6ff99;
+}
+
+.desk-setup {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
+/* Man typing illustration */
+.man {
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+/* Glowing monitor */
+.monitor {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 90px;
+  background: #000;
+  border: 3px solid #00ffee;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #00ffee99;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.screen {
+  padding: 10px;
+  color: #00ffcc;
+  font-size: 0.85rem;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Typing animation */
+.typed-line {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ffcc;
+  animation: typing 3s steps(10, end) infinite alternate, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+</style>
+        </div>
+    </div>
+</section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive technology solutions for healthcare industry</p>
+            </div>
+            <class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Development</h3>
+                    <p>Custom mobile applications for healthcare providers, patients, and medical staff with HIPAA compliance.</p>
+                    <span class="price-tag">₹44,999/-</span>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Responsive healthcare websites, patient portals, and EHR systems with seamless integration.</p>
+                    <span class="price-tag">₹34,999/-</span>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Strategic online marketing campaigns for healthcare providers to reach and engage patients.</p>
+                    <span class="price-tag">₹14,999/-</span>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>PaaS Development</h3>
+                    <p>Platform-as-a-Service solutions for healthcare providers to build, run, and manage applications.</p>
+                    <span class="price-tag">₹59,999/-</span>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>SaaS Development</h3>
+                    <p>Custom Software-as-a-Service solutions for healthcare management and patient engagement.</p>
+                    <span class="price-tag">₹69,999/-</span>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Solutions</h3>
+                    <p>AI-powered diagnostic tools, predictive analytics, and intelligent healthcare systems.</p>
+                    <span class="price-tag">₹89,999/-</span>
+                 </div>
+
+
+                 <!-- Service 7 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Logo Design</h3>
+                    <p>We design unique and memorable logos that define your brand.</p>
+                    <span class="price-tag">₹399/-</span>
+                 </div>
+                  </div>
+            </div>
+
+                </section>
+
+
+
+               
+
+
+    
+
+    <!-- Work Process Section -->
+    <section id="work-process" class="work-process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Work Process</h2>
+                <p>Agile Development</p>
+                <p>Discover our structured approach to delivering successful projects</p>
+            </div>
+            <div class="process-steps">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-header">
+                        <h3 class="step-title">Project Initiation</h3>
+                        <span class="step-duration">1-2 Weeks</span>
+                    </div>
+                    <div class="step-content">
+                        <p>Vision Alignment - Client and Sudama's Team define project goals and expectations</p>
+                        <ul>
+                            <li>Align on priorities and identify key expectations</li>
+                            <li>Prioritize features as Must-Have, Should-Have and Nice-to-Have</li>
+                            <li>Outline budget, timeline and technical limitations</li>
+                            <li>Set up collaboration tools and communication channels</li>
+                            <li>Formalize all agreements in a shared document</li>
+                        </ul>
+                        <span class="step-responsibility">Sudama</span>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-header">
+                        <h3 class="step-title">Sprint Planning</h3>
+                        <span class="step-duration">3 Weeks</span>
+                    </div>
+                    <div class="step-content">
+                        <p>Goal Setting - Define clear, measurable objectives for the sprint</p>
+                        <ul>
+                            <li>Break down large and complex tasks into smaller, actionable tasks</li>
+                            <li>Team estimates workload and commits only to achievable goals</li>
+                            <li>Developers self-select tasks based on skills and interest</li>
+                            <li>Agree on completion criteria for each task</li>
+                            <li>Update Client at the end of each sprint</li>
+                        </ul>
+                        <span class="step-responsibility">Sudama</span>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-header">
+                        <h3 class="step-title">Development & Iteration</h3>
+                        <span class="step-duration">Depend on task</span>
+                    </div>
+                    <div class="step-content">
+                        <p>Speed, flexibility and Teamwork - Daily Standups (15-Minute Sync)</p>
+                        <ul>
+                            <li>Work only on tasks committed to in sprint planning</li>
+                            <li>Code merged and tested daily to avoid last-minute chaos</li>
+                            <li>New requirements? Add them to the next sprint backlog</li>
+                            <li>Visualize progress (tasks left vs. time remaining)</li>
+                            <li>Code reviewed, tested, and deployed to staging</li>
+                            <li>Build a little, test a little, learn a lot</li>
+                        </ul>
+                        <span class="step-responsibility">Sudama</span>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="step">
+                    <div class="step-header">
+                        <h3 class="step-title">Review and Adaptation</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Continuous improvement, not blame - Reflect on what worked and what didn't</p>
+                        <ul>
+                            <li>Whole team joins to encourage honest feedback without judgment</li>
+                            <li>Data-Driven Insight for better decision making</li>
+                            <li>Prioritize 1-2 key improvements for the next sprint</li>
+                            <li>Document decisions in a shared retro board</li>
+                        </ul>
+                        <span class="step-responsibility">Sudama</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Projects</h2>
+            <p>Explore our recent healthcare technology solutions</p>
+        </div>
+        <div class="projects-grid">
+            <!-- Replaced Project 1 with BookMyDoct -->
+            <div class="project-card">
+                <div class="project-image" style="background:none; padding:0;">
+                    <img src="bookmydoct.png" alt="BookMyDoct Project" style="width:100%; height:200px; object-fit:cover; display:block;">
+                </div>
+                <div class="project-content">
+                    <h3>BookMyDoct</h3>
+                    <p>Online doctor appointment booking system for patients and clinics.</p>
+                    <a href="https://www.bookmydoct.com" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                <div class="project-image" style="background:none; padding:0;">
+                    <img src="educloud.png" alt="educloud Project" style="width:100%; height:200px; object-fit:cover; display:block;">
+                </div>
+                <div class="project-content">
+                    <h3>EDU CLOUD</h3>
+                    <p>One system. All school operations. Zero hassles. Our School Management System is a powerful tool that streamlines school operations, making it easier for parents, teachers, and administrators to manage their school efficiently.</p>
+                    <a href="https://educloud-service.vercel.app/" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+                
+                <!-- Project 3 -->
+                
+                <div class="project-card">
+                <div class="project-image" style="background:none; padding:0;">
+                    <img src="darkgym.png" alt="educloud Project" style="width:100%; height:200px; object-fit:cover; display:block;">
+                </div>
+                <div class="project-content">
+                    <h3>DARK GYM</h3>
+                    <p>We have developed a modern, responsive gym website designed to attract fitness enthusiasts, showcase training programs, and streamline membership registrations.</p>
+                    <a href="https://sudarshannathmazumdar123.github.io/Dark_Gym/" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+
+
+            <!-- Project 4-->
+                
+                <div class="project-card">
+                <div class="project-image" style="background:none; padding:0;">
+                    <img src="doct.png" alt="educloud Project" style="width:100%; height:200px; object-fit:cover; display:block;">
+                </div>
+                <div class="project-content">
+                    <h3>Doctor booking</h3>
+                    <p>Doctor Booking Website</p>
+                    <a href="https://bookmydoct.vercel.app/" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+                
+                <div class="project-card">
+                <div class="project-image" style="background:none; padding:0;">
+                    <img src="inprogress.png" alt="educloud Project" style="width:100%; height:200px; object-fit:cover; display:block;">
+                </div>
+                <div class="project-content">
+                    <h3>DATING APP</h3>
+                    <p>IN PROGRESS</p>
+                    <a href="Dating App" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+
+            <!-- Project 7 -->
+                
+                <div class="project-card">
+                <div class="project-image" style="background:none; padding:0;">
+                    <img src="inprogress.png" alt="educloud Project" style="width:100%; height:200px; object-fit:cover; display:block;">
+                </div>
+                <div class="project-content">
+                    <h3>NEWS APP</h3>
+                    <p>IN PROGRESS</p>
+                    <a href="newsapp" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+             <!-- Project 6 -->
+                
+                <div class="project-card">
+                <div class="project-image" style="background:none; padding:0;">
+                    <img src="school.png" alt="educloud Project" style="width:100%; height:200px; object-fit:cover; display:block;">
+                </div>
+                <div class="project-content">
+                    <h3>School Website</h3>
+                    <p>Katlicherra Central School</p>
+                    <a href="https://www.katlicherracentralschool.in/" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+                
+    <!-- Contact Section -->
+     
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team for inquiries or project discussions</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Contact Information</h3>
+                        <div class="contact-details">
+                            <div>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Hospital Road Ramkrishna Nagar</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+91 9957052223 /  +91 8811072239</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>sudamasolutionstechnologies@gmail.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-clock"></i>
+                                <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Why Choose Us</h3>
+                        <p>With over a decade of experience in healthcare technology, we bring:</p>
+                        <ul>
+                            <li>Deep domain expertise in healthcare systems</li>
+                            <li>Agile development methodologies</li>
+                            <li>HIPAA-compliant solutions</li>
+                            <li>Proven track record of successful implementations</li>
+                            <li>Dedicated support and maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="48ca363c-9cc7-4902-97cf-96aaed01991b">
+                        <input type="hidden" name="subject" value="New Contact Form Submission">
+                        <input type="checkbox" name="botcheck" style="display: none;">
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Sudama Solutions</h3>
+                    <p>Providing innovative technology solutions for the healthcare industry since 2025. We're committed to enhancing patient care through digital transformation.</p>
+                    <div class="social-links">
+                        
+                        <a href="https://www.instagram.com/sudamasolutions_technologies?igsh=MTJrMXZqYWk3djRlZw%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#work-process">Work Process</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    
+                    <p><i class="fas fa-map-marker-alt"></i> Hospital Road Ramkrishna Nagar</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 98957052223 / +91 8811072239</p>
+                    <p><i class="fas fa-envelope"></i> sudamasolutionstechnologies@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sudama Solutions Technologies & Health Care Pvt Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize particles background
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#5d78ff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": false
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#5d78ff",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.5
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                
+                // Simple validation
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const message = formData.get('message');
+                
+                if (!name || !email || !message) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Submit form
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Thank you for your message! We will contact you soon.');
+                        form.reset();
+                    } else {
+                        alert('There was an error sending your message. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error sending your message. Please try again.');
+                });
+            });
+        }
+    </script>
+
+    <!-- Insert this inside <body> tag before </body> -->
+<script>
+// Mobile Nav Toggle
+const mobileMenuBtn = document.createElement('div');
+mobileMenuBtn.className = 'mobile-menu-btn';
+mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+document.querySelector('nav').appendChild(mobileMenuBtn);
+
+const navLinks = document.querySelector('.nav-links');
+mobileMenuBtn.addEventListener('click', () => {
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+});
+</script>
+
+<!-- Add this CSS to support mobile nav toggle -->
+<style>
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        background: var(--dark-card);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        display: none;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .nav-links a {
+        padding: 10px 0;
+    }
+}
+</style>
+
+<!-- Inject service form only for 44999 item -->
+<script>
+document.querySelectorAll('.service-card').forEach(card => {
+    const price = card.textContent.includes('₹44,999');
+    if (price) {
+        const form = document.createElement('form');
+        form.action = 'https://api.web3forms.com/submit';
+        form.method = 'POST';
+        form.innerHTML = `
+            <input type="hidden" name="access_key" value="48ca363c-9cc7-4902-97cf-96aaed01991b">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="emailid" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <input type="hidden" name="service" value="App Development">
+            <input type="hidden" name="price" value="44999">
+            <button type="submit" class="btn" style="margin-top: 10px;">Order Now</button>
+        `;
+        card.appendChild(form);
+    }
+});
+</script>
+
+<!-- Inject service form only for 34999 item -->
+<script>
+document.querySelectorAll('.service-card').forEach(card => {
+    const price = card.textContent.includes('₹34,999');
+    if (price) {
+        const form = document.createElement('form');
+        form.action = 'https://api.web3forms.com/submit';
+        form.method = 'POST';
+        form.innerHTML = `
+            <input type="hidden" name="access_key" value="48ca363c-9cc7-4902-97cf-96aaed01991b">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="emailid" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <input type="hidden" name="service" value="Web Development">
+            <input type="hidden" name="price" value="34999">
+            <button type="submit" class="btn" style="margin-top: 10px;">Order Now</button>
+        `;
+        card.appendChild(form);
+    }
+});
+</script>
+
+<!-- Inject service form only for 34999 item -->
+<script>
+document.querySelectorAll('.service-card').forEach(card => {
+    const price = card.textContent.includes('₹14,999');
+    if (price) {
+        const form = document.createElement('form');
+        form.action = 'https://api.web3forms.com/submit';
+        form.method = 'POST';
+        form.innerHTML = `
+            <input type="hidden" name="access_key" value="48ca363c-9cc7-4902-97cf-96aaed01991b">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="emailid" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <input type="hidden" name="service" value="Digital Marketting">
+            <input type="hidden" name="price" value="14999">
+            <button type="submit" class="btn" style="margin-top: 10px;">Order Now</button>
+        `;
+        card.appendChild(form);
+    }
+});
+</script>
+
+<!-- Inject service form only for 34999 item -->
+<script>
+document.querySelectorAll('.service-card').forEach(card => {
+    const price = card.textContent.includes('₹59,999');
+    if (price) {
+        const form = document.createElement('form');
+        form.action = 'https://api.web3forms.com/submit';
+        form.method = 'POST';
+        form.innerHTML = `
+            <input type="hidden" name="access_key" value="48ca363c-9cc7-4902-97cf-96aaed01991b">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="emailid" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <input type="hidden" name="service" value="Paas Development">
+            <input type="hidden" name="price" value="59999">
+            <button type="submit" class="btn" style="margin-top: 10px;">Order Now</button>
+        `;
+        card.appendChild(form);
+    }
+});
+</script>
+
+<!-- Inject service form only for 34999 item -->
+<script>
+document.querySelectorAll('.service-card').forEach(card => {
+    const price = card.textContent.includes('₹69,999');
+    if (price) {
+        const form = document.createElement('form');
+        form.action = 'https://api.web3forms.com/submit';
+        form.method = 'POST';
+        form.innerHTML = `
+            <input type="hidden" name="access_key" value="48ca363c-9cc7-4902-97cf-96aaed01991b">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="emailid" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <input type="hidden" name="service" value="Saas Development">
+            <input type="hidden" name="price" value="69999">
+            <button type="submit" class="btn" style="margin-top: 10px;">Order Now</button>
+        `;
+        card.appendChild(form);
+    }
+});
+</script>
+
+<!-- Inject service form only for 34999 item -->
+<script>
+document.querySelectorAll('.service-card').forEach(card => {
+    const price = card.textContent.includes('₹89,999');
+    if (price) {
+        const form = document.createElement('form');
+        form.action = 'https://api.web3forms.com/submit';
+        form.method = 'POST';
+        form.innerHTML = `
+            <input type="hidden" name="access_key" value="48ca363c-9cc7-4902-97cf-96aaed01991b">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="emailid" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <input type="hidden" name="service" value="Ai Solutions">
+            <input type="hidden" name="price" value="89999">
+            <button type="submit" class="btn" style="margin-top: 10px;">Order Now</button>
+        `;
+        card.appendChild(form);
+    }
+});
+</script>
+
+<!-- Inject service form only for 34999 item -->
+<script>
+document.querySelectorAll('.service-card').forEach(card => {
+    const price = card.textContent.includes('₹399');
+    if (price) {
+        const form = document.createElement('form');
+        form.action = 'https://api.web3forms.com/submit';
+        form.method = 'POST';
+        form.innerHTML = `
+            <input type="hidden" name="access_key" value="48ca363c-9cc7-4902-97cf-96aaed01991b">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="emailid" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <input type="hidden" name="service" value="Logo Design">
+            <input type="hidden" name="price" value="399">
+            <button type="submit" class="btn" style="margin-top: 10px;">Order Now</button>
+        `;
+        card.appendChild(form);
+    }
+});
+</script>
+
+
+
+
+</body>
+</html>
