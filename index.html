@@ -1409,6 +1409,136 @@ body {
 
 
 
+        <!-- review section -->
+
+        <section class="manual-review-section">
+  <h2>What Our Clients Say</h2>
+  <div class="manual-carousel">
+    
+    <!-- Arrow Buttons -->
+    <button class="nav-arrow left" onclick="changeReview(-1)">&#10094;</button>
+
+    <div class="review-display">
+      <div class="review-item active">
+        "Sudama Solutions built our health platform exactly how we envisioned it. Smooth, secure, scalable."<br>
+        <strong>— Dr. Kavita Sharma</strong>
+      </div>
+      <div class="review-item">
+        "Their SaaS delivery was faster than we expected. Tech + design = brilliant."<br>
+        <strong>— Rahul Dev</strong>
+      </div>
+      <div class="review-item">
+        "BookMyDoct transformed patient engagement. The UI is so clean!"<br>
+        <strong>— Sneha Das</strong>
+      </div>
+      <div class="review-item">
+        "AI tools developed by them are game changers for us."<br>
+        <strong>— Rakesh Dey</strong>
+      </div>
+      <div class="review-item">
+        "We trusted Sudama with full branding. It’s been a delight."<br>
+        <strong>— Priya Nair</strong>
+      </div>
+    </div>
+
+    <button class="nav-arrow right" onclick="changeReview(1)">&#10095;</button>
+    
+  </div>
+</section>
+
+<style>
+.manual-review-section {
+  background: #0b0f1a;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.manual-review-section h2 {
+  font-size: 2rem;
+  color: #00ffe1;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px #00ffe066;
+}
+
+.manual-carousel {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.review-display {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #00ffe122;
+  box-shadow: 0 0 15px #00ffe015;
+  min-height: 140px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.review-item {
+  display: none;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+.review-item.active {
+  display: block;
+}
+.review-item strong {
+  color: #00ffe1;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Fixed Position Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #00ffe1;
+  color: #0b0f1a;
+  border: none;
+  font-size: 28px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 20px #00ffe144;
+  z-index: 10;
+}
+
+.nav-arrow.left {
+  left: -60px;
+}
+
+.nav-arrow.right {
+  right: -60px;
+}
+
+@media (max-width: 768px) {
+  .nav-arrow.left {
+    left: 10px;
+  }
+  .nav-arrow.right {
+    right: 10px;
+}
+</style>
+
+<script>
+let currentIndex = 0;
+const reviews = document.querySelectorAll('.review-item');
+
+function changeReview(direction) {
+  reviews[currentIndex].classList.remove('active');
+  currentIndex = (currentIndex + direction + reviews.length) % reviews.length;
+  reviews[currentIndex].classList.add('active');
+}
+</script>
+
                 
     <!-- Contact Section -->
      
