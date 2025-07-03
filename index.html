@@ -906,6 +906,113 @@ body {
 
 
     
+<section class="stats-section">
+  <h2>What We've Achieved</h2>
+  <div class="stats-container">
+    <div class="stat-card">
+      <div class="scrolling-wrapper">
+        <div class="scrolling-number">
+          <div>48+</div>
+          <div>48+</div>
+          <div>48+</div>
+         
+        </div>
+      </div>
+      <p>Clients</p>
+    </div>
+    <div class="stat-card">
+      <div class="scrolling-wrapper">
+        <div class="scrolling-number">
+          <div>98+</div>
+          <div>98+</div>
+          <div>98+</div>
+          
+        </div>
+      </div>
+      <p>Projects</p>
+    </div>
+    <div class="stat-card">
+      <div class="scrolling-wrapper">
+        <div class="scrolling-number">
+          <div>2+</div>
+          <div>2+</div>
+          <div>2+</div>
+          
+        </div>
+      </div>
+      <p>Years Experience</p>
+    </div>
+  </div>
+</section>
+
+<style>
+.stats-section {
+  background: #0e1017;
+  padding: 100px 20px;
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.stats-section h2 {
+  font-size: 2rem;
+  color: #00eaff;
+  margin-bottom: 50px;
+  text-shadow: 0 0 15px #00eaff66;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00eaff22;
+  min-width: 180px;
+  text-align: center;
+}
+
+/* Wrapper to control overflow */
+.scrolling-wrapper {
+  height: 50px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+/* Animated number */
+.scrolling-number {
+  display: flex;
+  flex-direction: column;
+  animation: scrollUp 4s linear infinite;
+}
+
+.scrolling-number > div {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #00ffe1;
+  height: 50px;
+  line-height: 50px;
+}
+
+.stat-card p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+@keyframes scrollUp {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-50px); }
+  50%  { transform: translateY(-100px); }
+  75%  { transform: translateY(-150px); }
+  100% { transform: translateY(0); }
+}
+</style>
+
 
    <!-- About Section -->
 <section id="about" class="about">
